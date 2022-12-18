@@ -16,20 +16,16 @@ function fibSeq(end) {
 }
 
 function fibStr(n, str) {
+  const fib = fibSeq(n);
   const [a, b] = str;
   const result = [a, b];
-  sequence = fibSeq(n);
 
-  for (let i = 0; i <= sequence.length - 1; i++) {
-    const n1 = i;
-    const n2 = i - 1;
-
-    console.log(`i=${i}`, n1, n2);
-    result.push(`${a}${b}`.repeat(parseInt(sequence[i], 10)));
+  for (let n1 = 2; n1 <= fib.length - 1; n1++) {
+    const n2 = n1 - 1;
+    result.push(result[n2] + result[n2 - 1]);
   }
 
-  console.log(sequence);
-  console.log(result);
+  return result.join(", ");
 }
 
 fibStr(3, ["j", "h"]); // "j, h, hj"
