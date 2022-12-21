@@ -1,11 +1,10 @@
 // https://edabit.com/challenge/o7TwicAHWuMkjbDqQ
 function whichIsLarger(f, g) {
-  const [a, b] = [f(), g()];
-  if (a === b) {
+  if (f() === g()) {
     return "neither";
   }
 
-  return a > b ? "f" : "g";
+  return f() > g() ? "f" : "g";
 }
 
 whichIsLarger(
