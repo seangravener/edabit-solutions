@@ -12,6 +12,10 @@ function findSum(arr, value) {
         break;
       }
     }
+
+    if (result) {
+      break;
+    }
   }
 
   return result;
