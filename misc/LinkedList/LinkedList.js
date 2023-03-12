@@ -17,6 +17,18 @@ export class LinkedList {
     return this;
   }
 
+  insertAtTail(data) {
+    const node = new Node(data);
+    const tail = this.head;
+
+    if (this.isEmpty()) return this;
+    while (tail.nextElement !== null) {
+      tail = tail.nextElement;
+    }
+
+    tail.nextElement = node;
+  }
+
   printList() {
     let currentHead = this.head;
     let messages = [];
