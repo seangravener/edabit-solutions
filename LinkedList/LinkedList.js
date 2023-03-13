@@ -5,6 +5,18 @@ export class LinkedList {
     return this.head === null;
   }
 
+  get length() {
+    let currentHead = this.head;
+    let count = 0;
+
+    while (currentHead !== null) {
+      count++;
+      currentHead = currentHead.nextElement;
+    }
+
+    return count;
+  }
+
   constructor() {
     this.head = null;
   }

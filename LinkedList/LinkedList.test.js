@@ -77,10 +77,23 @@ describe("LinkedList", () => {
     linkedList.insertAtHead(2);
     expect(linkedList.printList()).toEqual("2 -> 1 -> 0");
 
-    linkedList.deleteAtTail()
+    linkedList.deleteAtTail();
     expect(linkedList.printList()).toEqual("2 -> 1");
-    
-    linkedList.deleteAtTail()
+
+    linkedList.deleteAtTail();
     expect(linkedList.printList()).toEqual("2");
+  });
+
+  it("length", () => {
+    linkedList.insertAtHead(0);
+    linkedList.insertAtHead(1);
+    linkedList.insertAtHead(2);
+    expect(linkedList.length).toEqual(3);
+
+    linkedList.insertAtHead(3);
+    expect(linkedList.length).toEqual(4);
+
+    linkedList.insertAtHead(4);
+    expect(linkedList.length).toEqual(5);
   });
 });
