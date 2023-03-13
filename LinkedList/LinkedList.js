@@ -1,12 +1,12 @@
 import { Node } from "./Node.js";
 
 export class LinkedList {
-  constructor() {
-    this.head = null;
+  get isEmpty() {
+    return this.head === null;
   }
 
-  isEmpty() {
-    return this.head === null;
+  constructor() {
+    this.head = null;
   }
 
   insertAtHead(data) {
@@ -19,26 +19,31 @@ export class LinkedList {
 
   insertAtTail(data) {
     const node = new Node(data);
-    const tail = this.head;
+    let tail = this.head;
 
-    if (this.isEmpty()) return this;
+    if (this.isEmpty) {
+      this.head = node;
+      return this;
+    }
+
     while (tail.nextElement !== null) {
       tail = tail.nextElement;
     }
-
     tail.nextElement = node;
+
+    return this;
   }
 
   printList() {
     let currentHead = this.head;
     let messages = [];
 
-    if (this.isEmpty()) return this;
+    if (this.isEmpty) return this;
     while (currentHead !== null) {
       messages.push(currentHead.data);
       currentHead = currentHead.nextElement;
     }
 
-    console.log(messages.join(" -> "));
+    return messages.join(" -> ");
   }
 }
