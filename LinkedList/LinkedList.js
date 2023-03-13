@@ -34,6 +34,23 @@ export class LinkedList {
     return this;
   }
 
+  search(value) {
+    let currentHead = this.head;
+    let result = false;
+
+    if (this.isEmpty) return this;
+    while (currentHead !== null) {
+      result = currentHead.data === value ? true : false;
+      currentHead = currentHead.nextElement;
+
+      if (result) {
+        break;
+      }
+    }
+
+    return result;
+  }
+
   printList() {
     let currentHead = this.head;
     let messages = [];
