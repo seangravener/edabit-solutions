@@ -1,4 +1,5 @@
 import { LinkedList } from "./LinkedList.js";
+import { removeDuplicates } from "./util.js";
 
 let linkedList;
 
@@ -95,5 +96,28 @@ describe("LinkedList", () => {
 
     linkedList.insertAtHead(4);
     expect(linkedList.length).toEqual(5);
+  });
+
+  it("removeDuplicates", () => {
+    linkedList.insertAtHead(0);
+    linkedList.insertAtHead(1);
+    linkedList.insertAtHead(1);
+    linkedList.insertAtHead(2);
+    linkedList.insertAtHead(2);
+    linkedList.insertAtHead(3);
+    expect(linkedList.printList()).toEqual("3 -> 2 -> 2 -> 1 -> 1 -> 0");
+
+    const linkedList2 = removeDuplicates(linkedList);
+    expect(linkedList2.printList()).toEqual("3 -> 2 -> 1 -> 0");
+
+    const linkedList3 = new LinkedList();
+    linkedList3.insertAtHead(0);
+    linkedList3.insertAtHead(1);
+    linkedList3.insertAtHead(1);
+    linkedList3.insertAtHead(1);
+    linkedList3.insertAtHead(1);
+    linkedList3.insertAtHead(1);
+    expect(linkedList3.printList()).toEqual("1 -> 1 -> 1 -> 1 -> 1 -> 0");
+    expect(removeDuplicates(linkedList3).printList()).toEqual("1 -> 0");
   });
 });
