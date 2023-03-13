@@ -51,6 +51,31 @@ export class LinkedList {
     return result;
   }
 
+  deleteAtHead() {
+    if (this.isEmpty) return this;
+    this.head = this.head.nextElement;
+  }
+
+  deleteValue(value) {
+    if (this.isEmpty) return this;
+    let currentHead = this.head;
+
+    if (currentHead.data === value) {
+      currentHead = currentHead.nextElement;
+      return true;
+    }
+
+    while (currentHead.nextElement !== null) {
+      if (currentHead.nextElement.data === value) {
+        currentHead.nextElement = currentHead.nextElement.nextElement;
+      } else {
+        currentHead = currentHead.nextElement;
+      }
+    }
+
+    return this;
+  }
+
   printList() {
     let currentHead = this.head;
     let messages = [];
