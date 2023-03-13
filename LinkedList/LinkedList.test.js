@@ -37,7 +37,7 @@ describe("LinkedList", () => {
       linkedList.search(11),
       linkedList.search(0),
     ];
-    
+
     expect(results).toEqual([true, true, false, true]);
   });
 
@@ -58,8 +58,10 @@ describe("LinkedList", () => {
     linkedList.insertAtTail(2);
     expect(linkedList.printList()).toEqual("0 -> 1 -> 2");
 
-    linkedList.deleteValue(1);
+    let deleted1 = linkedList.deleteValue(1);
+    let deleted2 = linkedList.deleteValue(8);
     expect(linkedList.printList()).toEqual("0 -> 2");
+    expect([deleted1, deleted2]).toEqual([true, false]);
 
     linkedList.deleteValue(6);
     linkedList.deleteValue(-6);
@@ -67,6 +69,5 @@ describe("LinkedList", () => {
 
     linkedList.deleteValue(2);
     expect(linkedList.printList()).toEqual("0");
-
   });
 });

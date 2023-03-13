@@ -57,7 +57,7 @@ export class LinkedList {
   }
 
   deleteValue(value) {
-    if (this.isEmpty) return this;
+    if (this.isEmpty) return false;
     let currentHead = this.head;
 
     if (currentHead.data === value) {
@@ -68,12 +68,13 @@ export class LinkedList {
     while (currentHead.nextElement !== null) {
       if (currentHead.nextElement.data === value) {
         currentHead.nextElement = currentHead.nextElement.nextElement;
-      } else {
-        currentHead = currentHead.nextElement;
+        return true;
       }
+
+      currentHead = currentHead.nextElement;
     }
 
-    return this;
+    return false;
   }
 
   printList() {
