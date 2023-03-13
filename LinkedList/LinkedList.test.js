@@ -70,4 +70,17 @@ describe("LinkedList", () => {
     linkedList.deleteValue(2);
     expect(linkedList.printList()).toEqual("0");
   });
+
+  it("deleteAtTail", () => {
+    linkedList.insertAtHead(0);
+    linkedList.insertAtHead(1);
+    linkedList.insertAtHead(2);
+    expect(linkedList.printList()).toEqual("2 -> 1 -> 0");
+
+    linkedList.deleteAtTail()
+    expect(linkedList.printList()).toEqual("2 -> 1");
+    
+    linkedList.deleteAtTail()
+    expect(linkedList.printList()).toEqual("2");
+  });
 });

@@ -56,6 +56,22 @@ export class LinkedList {
     this.head = this.head.nextElement;
   }
 
+  deleteAtTail() {
+    if (this.isEmpty) return this;
+    let currentHead = this.head;
+
+    if (currentHead.nextElement === null) {
+      this.deleteAtHead();
+      return this;
+    }
+
+    while (currentHead.nextElement.nextElement !== null) {
+      currentHead = currentHead.nextElement;
+    }
+
+    currentHead.nextElement = null;
+  }
+
   deleteValue(value) {
     if (this.isEmpty) return false;
     let currentHead = this.head;
