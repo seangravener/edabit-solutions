@@ -1,4 +1,4 @@
-import { Node } from "./Node.js";
+import { ListItem } from "./ListItem.js";
 
 export class LinkedList {
   get isEmpty() {
@@ -22,7 +22,7 @@ export class LinkedList {
   }
 
   insertAtHead(data) {
-    const node = new Node(data);
+    const node = new ListItem(data);
     node.nextElement = this.head;
     this.head = node;
 
@@ -30,7 +30,7 @@ export class LinkedList {
   }
 
   insertAtTail(data) {
-    const node = new Node(data);
+    const node = new ListItem(data);
     let tail = this.head;
 
     if (this.isEmpty) {
