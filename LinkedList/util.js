@@ -1,6 +1,8 @@
 import { LinkedList } from "./LinkedList";
 
 export function removeDuplicates(list) {
+  if (list.isEmpty) return;
+
   const newList = new LinkedList();
   let currentHead = list.head;
   const found = [];
