@@ -1,5 +1,5 @@
 import { LinkedList } from "./LinkedList.js";
-import { removeDuplicates } from "./util.js";
+import { removeDuplicates, union } from "./util.js";
 
 let linkedList;
 
@@ -119,5 +119,24 @@ describe("LinkedList", () => {
     linkedList3.insertAtHead(1);
     expect(linkedList3.printList()).toEqual("1 -> 1 -> 1 -> 1 -> 1 -> 0");
     expect(removeDuplicates(linkedList3).printList()).toEqual("1 -> 0");
+  });
+
+  it("union", () => {
+    const list1 = new LinkedList();
+    list1.insertAtHead(0);
+    list1.insertAtHead(1);
+    list1.insertAtHead(2);
+    list1.insertAtHead(3);
+    expect(list1.printList()).toEqual("3 -> 2 -> 1 -> 0");
+
+    const list2 = new LinkedList();
+    list2.insertAtHead(0);
+    list2.insertAtHead(1);
+    list2.insertAtHead(2);
+    list2.insertAtHead(3);
+    expect(list2.printList()).toEqual("3 -> 2 -> 1 -> 0");
+
+    const unified = union(list1, list2).printList();
+    expect(unified).toEqual("3 -> 2 -> 1 -> 0 -> 3 -> 2 -> 1 -> 0");
   });
 });

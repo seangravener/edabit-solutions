@@ -17,3 +17,20 @@ export function removeDuplicates(list) {
 
   return newList;
 }
+
+export function union(list1, list2) {
+  if (list1.isEmpty) {
+    return list2;
+  } else if (list2.isEmpty) {
+    return list1;
+  }
+
+  let currentHead = list1.head;
+
+  while (currentHead.nextElement !== null) {
+    currentHead = currentHead.nextElement;
+  }
+
+  currentHead.nextElement = list2.head;
+  return list1;
+}
