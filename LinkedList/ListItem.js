@@ -1,6 +1,7 @@
 export class ListItem {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.data = value;
+    this.prevElement = null;
     this.nextElement = null;
   }
 }
