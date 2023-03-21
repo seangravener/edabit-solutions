@@ -139,4 +139,25 @@ describe("LinkedList", () => {
     const unified = union(list1, list2).printList();
     expect(unified).toEqual("3 -> 2 -> 1 -> 0 -> 3 -> 2 -> 1 -> 0");
   });
+
+  it("findNth", () => {
+    const list1 = new LinkedList();
+    list1.insertAtHead(0);
+    list1.insertAtHead(1);
+    list1.insertAtHead(2);
+    list1.insertAtHead(3);
+    expect(list1.printList()).toEqual("3 -> 2 -> 1 -> 0");
+
+    let nth = list1.findNth(list1, 1)
+    expect(nth).toEqual(0);
+
+    nth = list1.findNth(list1, 2)
+    expect(nth).toEqual(1);
+
+    nth = list1.findNth(list1, 3)
+    expect(nth).toEqual(2);
+
+    nth = list1.findNth(list1, 4)
+    expect(nth).toEqual(3);
+  });
 });
