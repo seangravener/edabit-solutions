@@ -65,17 +65,15 @@ export class LinkedList {
 
   findNth(list, n) {
     const len = list.length;
-    let count = 1;
-    let nthNode = null;
     let currentHead = list.head;
+    let count = 1;
 
     while (count <= len - n) {
       currentHead = currentHead.nextElement;
       count++;
     }
-    nthNode = currentHead.data;
 
-    return nthNode;
+    return currentHead.data;
   }
 
   deleteAtHead() {
